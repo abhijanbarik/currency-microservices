@@ -1,3 +1,5 @@
+//Scripted -> Groovy Script
+
 node {
 	stage('Build') {
 		echo "Build"
