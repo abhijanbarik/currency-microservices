@@ -44,5 +44,23 @@ pipeline{
 				echo "Integration Test"
 			}
 		}
+	} 
+	
+	post {
+
+		always{
+			
+			echo "I'm running successfully so far."
+		}
+
+		success{
+
+			echo "I ran successfully."
+		}
+
+		failure{
+
+			echo "oops, I failed in running. Kindly, check the issue!"
+		}
 	}
 }
