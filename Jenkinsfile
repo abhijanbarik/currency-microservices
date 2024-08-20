@@ -17,11 +17,17 @@
 
 pipeline{
 
-	// agent any
+	agent any
 
 	// agent { docker { image 'maven:3.9.8' } } 
 
-	agent { docker { image 'node:22.6' } }
+	// agent { docker { image 'node:22.6' } }
+
+	environment {
+		dockerHome = tool 'abDocker'
+		mavenHome = tool 'abMaven'
+		PATH = "dockerHome/bin:mavenHome/bin:$path"
+	}
 
 	stages{
 
@@ -29,8 +35,8 @@ pipeline{
 
 			steps{
 
-				// sh 'mvn --version'
-				sh 'node --version'
+				sh 'mvn --version'
+				sh 'docker --version'
 				echo "Build"
 			}
 		}
